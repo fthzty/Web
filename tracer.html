@@ -1,0 +1,25 @@
+<!-- index.html -->
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My JS Page</title>
+</head>
+<body>
+  <h1>Halo!</h1>
+  <p id="lokasi">Mendeteksi lokasi Anda...</p>
+
+  <script>
+    // JavaScript untuk mendeteksi lokasi
+    if (navigator.geolocation) {
+      navigator.geolocation.getCurrentPosition(function(position) {
+        document.getElementById("lokasi").innerText =
+          "Lokasi Anda: " + position.coords.latitude + ", " + position.coords.longitude;
+      }, function() {
+        document.getElementById("lokasi").innerText = "Izin lokasi ditolak.";
+      });
+    } else {
+      document.getElementById("lokasi").innerText = "Geolocation tidak didukung.";
+    }
+  </script>
+</body>
+</html>
